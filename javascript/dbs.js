@@ -24,9 +24,7 @@ var dbs = (function() {
 	
 	function playWelcomeMessage() {
 		
-		var WELCOME_MESSAGE = "Welcome to Draw by Sound! My name is April! "
-			+ "I will teach you how to use this application."
-			+ "When you are ready, say next and we'll start the tutorial!";
+		var WELCOME_MESSAGE = "Welcome to Draw by Sound! Enjoy "
 		
 		tts.speak({
 			message : WELCOME_MESSAGE,
@@ -37,28 +35,6 @@ var dbs = (function() {
 				vr.start();
 			}
 		});
-	}
-	
-	// tutorial to draw a red square
-	function playTutorial () {
-		
-		var FIRST_TUTORIAL_MESSAGE = "Choosing the color tutorial: " +
-		"You can say one of the following colors to pick the color to draw with: " + 
-		+ COLORS.join(",");
-
-		var DIRECTION_TUTORIAL_MESSAGE = "Choosing the direction tutorial: " +
-				+"You can control the direction by saying one of the directions: "
-				+DIRECTIONS.join(",");
-		
-		var START_STOP_REFRESH_MESSAGE = "To start painting say go. " +
-				"To stop painting say stop. " +
-				"To clean the canvas say refresh. ";
-		
-	}
-	
-	// start the actual application
-	function playApplication() {
-		
 	}
 	
 	// mutes text to speech
