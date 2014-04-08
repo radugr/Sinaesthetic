@@ -1,0 +1,23 @@
+
+Text to Speech:
+	http://updates.html5rocks.com/2014/01/Web-apps-that-talk---Introduction-to-the-Speech-Synthesis-API
+
+Speech recognition:
+    http://stiltsoft.com/blog/2013/05/google-chrome-how-to-use-the-web-speech-api/
+    http://www.adobe.com/devnet/html5/articles/voice-to-drive-the-web-introduction-to-speech-api.html
+
+Sound recording: 
+    http://www.html5rocks.com/en/tutorials/getusermedia/intro/
+    http://dev.w3.org/2011/webrtc/editor/getusermedia.html
+	http://www.html5rocks.com/en/tutorials/webaudio/intro/
+	
+	
+Drawing: 
+	Raphael js
+	
+
+Trunk.js
+  http://www.roblukedesign.com/trunk/trunk.html#
+  
+Fonts 
+   http://shoestrap.org/downloads/elusive-icons-webfont/
