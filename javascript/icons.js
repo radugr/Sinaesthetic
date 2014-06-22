@@ -3,6 +3,10 @@ var icons = (function () {
 	var mic = document.getElementById("micbutton");
 	var speaker = document.getElementById("speakerbutton");
 	var drawing = document.getElementById("drawingbutton");
+	var replay = document.getElementById("replaybutton");
+	var save = document.getElementById("savebutton");
+	var load = document.getElementById("loadbutton");
+	var refresh = document.getElementById("refreshbutton");
 	
 	function activate(name) {
 		switch (name) {
@@ -15,6 +19,18 @@ var icons = (function () {
 	      case "drawing":
 	    	  drawing.className = drawing.className.replace(/\bdeactivated\b/,'activated');
 			break;
+	      case "replay":
+	    	  replay.className = replay.className.replace(/\bdeactivated\b/,'activated');
+	    	break;
+	      case "save":
+	    	  save.className = save.className.replace(/\bdeactivated\b/,'activated');
+	    	break;
+	      case "load":
+	    	  load.className = load.className.replace(/\bdeactivated\b/,'activated');
+	    	break;
+	      case "refresh":
+	    	  refresh.className = refresh.className.replace(/\bdeactivated\b/,'activated');
+	    	break;
 		}
 	}
 	
@@ -29,6 +45,18 @@ var icons = (function () {
 	      case "drawing":
 	    	  drawing.className = drawing.className.replace(/\bactivated\b/,'deactivated');
 			break;
+	      case "replay":
+	    	  replay.className = replay.className.replace(/\bactivated\b/,'deactivated');
+	    	break;
+	      case "save":
+	    	  save.className = save.className.replace(/\bactivated\b/,'deactivated');
+	    	break;
+	      case "load":
+	    	  load.className = load.className.replace(/\bactivated\b/,'deactivated');
+	    	break;
+	      case "refresh":
+	    	  refresh.className = refresh.className.replace(/\bactivated\b/,'deactivated');
+	    	break;
 		}
 	}
 	

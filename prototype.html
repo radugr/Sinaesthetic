@@ -7,31 +7,95 @@
 <body>
 
 	<div id="header">
-		<h1>Draw by Sound</h1>
+		<a href=""><img id="logo" src="images/logo3.png"/></a>
 	</div>
 	
-	<div id="leftbar">
-		<button id="drawingbutton" class="deactivated buttons el-icon-pencil-alt"></button>
-		<button id="micbutton" class="activated buttons el-icon-mic-alt"></button>
+	<div id="leftbar" class="menu">
+		<button id="drawingbutton" class="deactivated buttons el-icon-brush"></button>
+		<button id="micbutton" class="activated buttons el-icon-mic"></button>
 		<button id="speakerbutton" class="deactivated buttons el-icon-speaker"></button>
-		<button id="leftbutton1" class="deactivated buttons el-icon-puzzle"></button>
-		<button id="leftbutton2" class="deactivated buttons el-icon-puzzle"></button>
-		<button id="leftbutton3" class="deactivated buttons el-icon-puzzle"></button>
+		<button id="replaybutton" class="deactivated buttons el-icon-play"></button>
+		<button id="savebutton" class="deactivated buttons  el-icon-download-alt"></button>
+		<button id="loadbutton" class="deactivated buttons el-icon-folder-open"></button>
+		<button id="refreshbutton" class="deactivated buttons el-icon-refresh"></button>
+		<button id="tutorial" class="deactivated buttons el-icon-book"></button>
 	</div>
 	
-	<div id="rightbar">
-		<button id="toolbutton" class="deactivated buttons el-icon-puzzle"></button>
-		<button id="colorbutton" class="deactivated buttons el-icon-puzzle"></button>
-		<button id="otherbutton1" class="deactivated buttons el-icon-puzzle"></button>
-		<button id="otherbutton2" class="deactivated buttons el-icon-puzzle"></button>
-		<button id="otherbutton3" class="deactivated buttons el-icon-puzzle"></button>
-		<button id="otherbutton4" class="deactivated buttons el-icon-puzzle"></button>
-	</div>
-	
+	<div id="rightbar" class="menu">
+		<div id="previews">
+			<canvas id="save1" class="buttons"></canvas>
+			<canvas id="save2" class="buttons"></canvas>
+			<canvas id="save3" class="buttons"></canvas>
+			<canvas id="save4" class="buttons"></canvas>
+			<canvas id="save5" class="buttons"></canvas>
+		</div>
+		<table id="drawingSettings" class="tg">
+		  <tr>
+		    <th class="tg-cxkv" colspan="2" rowspan="2"><canvas id="brushSelected" class="drawingTool"><canvas/></th>
+		    <th class="tg-031e" colspan="2" rowspan="2"><canvas id="colorSelected" class="drawingTool"><canvas/></th>
+		  </tr>
+		  <tr>
+		  </tr>
+		  <tr>
+		    <td class="tg-8056" colspan="4">Brush</td>
+		  </tr>
+		  <tr>
+		    <td class="tg-031e"><canvas id="brushSquare1" class="drawingTool"><canvas/></td>
+		    <td class="tg-031e"><canvas id="brushSquare2" class="drawingTool"><canvas/></td>
+		    <td class="tg-031e"><canvas id="brushSquare3" class="drawingTool"><canvas/></td>
+		    <td class="tg-031e"><canvas id="brushSquare4" class="drawingTool"><canvas/></td>
+		  </tr>
+		  <tr>
+		    <td class="tg-031e"><canvas id="brushCircle1" class="drawingTool"><canvas/></td>
+		    <td class="tg-031e"><canvas id="brushCircle2" class="drawingTool"><canvas/></td>
+		    <td class="tg-031e"><canvas id="brushCircle3" class="drawingTool"><canvas/></td>
+		    <td class="tg-031e"><canvas id="brushCircle4" class="drawingTool"><canvas/></td>
+		  </tr>
+		  <tr>
+		    <td class="tg-8e65" colspan="4">Color</td>
+		  </tr>
+		  <tr>
+		    <td class="tg-031e"><canvas id="brushColor1" class="color"></td>
+		    <td class="tg-031e"><canvas id="brushColor2" class="color"></td>
+		    <td class="tg-031e"><canvas id="brushColor3" class="color"></td>
+		    <td class="tg-031e"><canvas id="brushColor4" class="color"></td>
+		  </tr>
+		  <tr>
+		    <td class="tg-031e"><canvas id="brushColor5" class="color"></td>
+		    <td class="tg-031e"><canvas id="brushColor6" class="color"></td>
+		    <td class="tg-031e"><canvas id="brushColor7" class="color"></td>
+		    <td class="tg-031e"><canvas id="brushColor8" class="color"></td>
+		  </tr>
+		  <tr>
+		    <td class="tg-031e"><canvas id="brushColor9" class="color"></td>
+		    <td class="tg-031e"><canvas id="brushColor10" class="color"></td>
+		    <td class="tg-031e"><canvas id="brushColor11" class="color"></td>
+		    <td class="tg-031e"><canvas id="brushColor12" class="color"></td>
+		  </tr>
+		  <tr>
+		    <td class="tg-031e"><canvas id="brushColor13" class="color"></td>
+		    <td class="tg-031e"><canvas id="brushColor14" class="color"></td>
+		    <td class="tg-031e"><canvas id="brushColor15" class="color"></td>
+		    <td class="tg-031e"><canvas id="brushColor16" class="color"></td>
+		  </tr>
+		  <tr>
+		    <td class="tg-031e"><canvas id="brushColor17" class="color"></td>
+		    <td class="tg-031e"><canvas id="brushColor18" class="color"></td>
+		    <td class="tg-031e"><canvas id="brushColor19" class="color"></td>
+		    <td class="tg-031e"><canvas id="brushColor20" class="color"></td>
+		  </tr>
+		  <tr>
+		    <td class="tg-031e"><canvas id="brushColor21" class="color"></td>
+		    <td class="tg-031e"><canvas id="brushColor22" class="color"></td>
+		    <td class="tg-031e"><canvas id="brushColor23" class="color"></td>
+		    <td class="tg-031e"><canvas id="brushColor24" class="color"></td>
+		  </tr>
+		</table>
+	</div>	
+
 	<div id="board">
-		<canvas id="canvas"> 
-			
-		</canvas>
+		<canvas id="canvas"></canvas>
+		<canvas id="canvas-top"></canvas>
 	</div>
 
 	<div id ="transcript">
@@ -40,11 +104,14 @@
 
 	<script type="text/javascript" src="javascript/transcript-display.js"></script>
 	<script type="text/javascript" src="javascript/icons.js"></script>
+	<script type="text/javascript" src="javascript/mouse.js"></script>	
 	<script type="text/javascript" src="javascript/draw.js"></script>
 	<script type="text/javascript" src="javascript/tts.js"></script>
-	<script type="text/javascript" src="javascript/vr.js"></script>
-	<script type="text/javascript" src="javascript/sr.js"></script>
+	<script type="text/javascript" src="javascript/vr.js"></script>	
+	<script type="text/javascript" src="javascript/sound.js"></script>
 	<script type="text/javascript" src="javascript/dbs.js"></script>
+	<script type="text/javascript" src="javascript/persist.js"></script>
+	<script type="text/javascript" src="javascript/drawing-settings.js"></script>
 	
 </body>
 </html>

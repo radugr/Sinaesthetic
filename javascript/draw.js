@@ -4,7 +4,9 @@
 var draw = (function() {
 	var canvas = document.getElementById("canvas");
 	var context = canvas.getContext("2d");
-	context.lineWidth = 1;
+	context.lineWidth = 3;
+	canvas.width = canvas.parentElement.getBoundingClientRect().width;
+	canvas.height = canvas.parentElement.getBoundingClientRect().height;
 	
 	var positionX, positionY, nextPositionX, nextPositionY, drawing, currentColor, direction, speed;
 
@@ -88,6 +90,16 @@ var draw = (function() {
 	
 	initialize();
 	
+	
+	//attach to refresh button
+	document.getElementById("refreshbutton").addEventListener("click", function() {
+		icons.activate("refresh");
+		initialize();
+		setTimeout(function(){
+			icons.deactivate("refresh");
+		},200);
+	});
+	
 	return {
 		color : function (color) {
 			currentColor = color;
@@ -115,10 +127,12 @@ var draw = (function() {
 			drawing = true;
 			stroke();
 			icons.activate("drawing");
+			drawingSettings.show();
 		}, 
 		stop : function () {
 			drawing = false;
 			icons.deactivate("drawing");
+			drawingSettings.hide();
 		}, 
 		refresh : function () {
 			initialize();

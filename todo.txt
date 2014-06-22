@@ -1,0 +1,46 @@
+1. replay canvas as sound
+	
+2. give the posibility to choose another brush
+	- create different brush effects
+
+3. paint by mouse
+
+4. save and reload canvas 
+	- put saved canvases down, nice ;)
+	http://stackoverflow.com/questions/20507534/how-to-save-and-load-html5-canvas-to-from-localstorage
+
+5. make css nicer
+	fix to be relative !! important
+
+6. change mouse icon over canvas:
+	- use brush icon over canvas;
+	- use normal or other elsewhere;
+	
+7. tutorial sound to drawing 
+
+8. tutorial mapping colors to sound
+
+9. Give user feedback by flasing mike when speeking or speakers when playing sounds
+
+
+9. create sonar.js
+	- transform images to sound 
+
+10. create third menu on the bottom for picking a color
+	- open picker on the bottom pane
+
+11. calibrate tutorial
+	- paint equally spaced vertical lines
+	- paint equally spaced horizontal lines 
+	- paint equally spaced rectangles 
+	- let the user get familiar with how it works 	
+	- tutorial how the olympic circles sound like
+	
+	
+12. Put preview canvases in a table 
+	use http://www.tablesgenerator.com/html_tables
+
+13. Fix table text
+
+14  Add more colors to the picker
+	

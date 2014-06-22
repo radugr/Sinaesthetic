@@ -1,65 +1,165 @@
 body {
-        margin: 0;      
+	margin: 0;
+	overflow: hidden;
 }
 
 h1 {
-    font: 700 40px / 25px "Calibri";
-    text-align: center;
-    color: #333;
-    text-shadow: 1px 1px 3px rgba(255, 255, 255, 1);
-}
- 
-#board {
-    margin: 0 auto;
+	font: 700 40px/25px "Calibri";
+	text-align: center;
+	color: #333;
+	text-shadow: 1px 1px 3px rgba(255, 255, 255, 1);
 }
 
-.buttons{
+.buttons {
+	cursor: pointer;
 	background-color: "white";
-	width:100%;
-	height:10%;
+	width: 100%;
+	height: 10%;
+	border: hidden;
+	border-radius: 10px;
 }
 
 .activated {
-	background-color: gray;
+	color: #F4841F !important;
+	background-color: #ffffff;
 }
 
 .deactivated {
-	background-color: white;
+	background-color: #ffffff;
 }
- 
+
 #leftbar {
 	position: absolute;
-	width:5%;
-	height:100%;
-	top:20%;
+	width: 5%;
+	height: 60%;
+	top: 20%;
+	box-shadow: 0px 0px 30px 5px #0F6485;
+	border-radius: 10px;
+	left: 2%;
 }
 
 #rightbar {
 	position: absolute;
-	width:5%;
-	left:95%;
-	height:100%;
-	top:20%;
+	width: 5%;
+	left: 93%;
+	height: 60%;
+	top: 20%;
+	box-shadow: 0px 0px 30px 5px #0F6485;
+	border-radius: 10px;
 }
-
 
 #header {
 	position: absolute;
-	left: 40%;
+	top: 3%;
 }
 
 #transcript {
-    font: "Calibri";
+	font: "Calibri";
 	position: absolute;
-	top:90%;
-	left:40%;
+	top: 90%;
+	left: 40%;
 }
- 
+
+#board {
+	cursor: crosshair;
+	position: absolute;
+	top: 5%;
+	left: 10%;
+	width: 80%;
+	height: 85%;
+	border: 3px #000;
+	border-radius: 10px;
+	box-shadow: 0px 0px 40px 5px #0F6485;
+	position: absolute;
+}
+
+#canvas-top {
+	z-index: 0;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
 #canvas {
-	    position:absolute;
-		top: 10%;
-		left: 10%;
-		width: 80%;
-		height: 80%;
-        border: 3px dotted #000;        
+	z-index: 1;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+#logo {
+	width: 170px;
+}
+
+table {
+	width: 100%;
+	border-color: #0F6485;
+}
+
+.tg {
+	border-collapse: collapse;
+	border-spacing: 0;
+	border-color: #0F6485;
+}
+
+.tg td {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	border-style: solid;
+	border-width: 0px;
+	overflow: hidden;
+	word-break: normal;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-color: #0F6485;
+}
+
+.tg th {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	border-style: solid;
+	border-width: 0px;
+	overflow: hidden;
+	word-break: normal;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-color: #0F6485;
+}
+
+.tg .tg-8056 {
+	background-color: #f8a102;
+	border-color: #0F6485;
+	color: #0F6485;
+}
+
+.tg .tg-cxkv {
+	background-color: #ffffff;
+	border-color: #0F6485;
+	color: #0F6485;
+}
+
+.tg .tg-8e65 {
+	background-color: #f8a102;
+	border-color: #0F6485;
+	color: #0F6485;
+}
+
+.drawingTool {
+	width : 100%;
+	cursor: pointer;
+}
+
+.color {
+	width : 100%;
+	margin: 10%;
+	cursor: pointer;
+}
+
+#previews {
+	display : none;
+}
+
+#drawingSettings { 
+	display : none;
 }
