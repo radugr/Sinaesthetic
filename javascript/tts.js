@@ -64,6 +64,7 @@ var tts = (function() {
 			icons.deactivate("speaker");
 			options.onend();
 		}
+		console.log(options);
 		utterance.text = options.message;
 		
 		speechSynthesis.speak(utterance);

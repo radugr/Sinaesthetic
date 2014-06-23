@@ -1,0 +1,35 @@
+Text to Speech:
+	http://updates.html5rocks.com/2014/01/Web-apps-that-talk---Introduction-to-the-Speech-Synthesis-API
+
+Speech recognition:
+    http://stiltsoft.com/blog/2013/05/google-chrome-how-to-use-the-web-speech-api/
+    http://www.adobe.com/devnet/html5/articles/voice-to-drive-the-web-introduction-to-speech-api.html
+
+Sound recording: 
+    http://www.html5rocks.com/en/tutorials/getusermedia/intro/
+    http://dev.w3.org/2011/webrtc/editor/getusermedia.html
+	http://www.html5rocks.com/en/tutorials/webaudio/intro/
+
+Trunk.js
+  http://www.roblukedesign.com/trunk/trunk.html#
+  
+Fonts 
+   http://shoestrap.org/downloads/elusive-icons-webfont/
+   
+Creating music with JavaScript:
+	http://flippinawesome.org/2013/10/28/audio-synthesis-in-javascript/
+	http://chimera.labs.oreilly.com/books/1234000001552/index.html / Web Audio API
+	http://flippinawesome.org/2014/03/31/creating-sound-with-the-web-audio-api-and-oscillators/
+
+Images: 
+	Olympic circle: 
+		http://www.activityvillage.co.uk/sites/default/files/images/olympic_rings_colouring_page_460_1.jpg 
+	World map: 
+		http://www.boomwallpaper.com/world-maps-countries-names-black-white/world-maps-with-countries-names-black-and-white-1/
+
+Predefined drawings: 
+	Drawing olympic circles: 
+		http://stackoverflow.com/questions/21180453/olympics-rings-with-javascript-on-html5-canvas
+		
+Generating table: http://www.tablesgenerator.com/html_tables
+	

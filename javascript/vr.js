@@ -72,6 +72,7 @@ var vr = (function() {
 					var transcript = result[j].transcript.trim();
 					transcripts+= transcript + " : ";
 					if (specificCallbacks[transcript]) {
+						console.log("found callback");
 						// TODO: 
 						// do partial matches with callbacks 
 						// - users may do minor variations in commands
@@ -84,7 +85,8 @@ var vr = (function() {
 					}
 				}
 				transcriptDisplay.setText(transcripts);
-				if(!found && defaultCallback){
+				if(!found && defaultCallback) {
+					console.log("no callback - playing default");
 					defaultCallback(result);
 					recognition.stop();
 					return;

@@ -58,6 +58,7 @@ h1 {
 	position: absolute;
 	top: 90%;
 	left: 40%;
+	display: none;
 }
 
 #board {

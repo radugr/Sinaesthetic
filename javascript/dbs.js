@@ -1,41 +1,127 @@
-
-//TODO: refactor application - do upper case to modules, etc;
-//TODO: create a navigation menu 
-//TODO: create a lock between text to speech, sound recording and voice recognition
-//TODO: add last visit checks so we don't put the user at rest
-//TODO: make the same guide appear on screen for users that don't what the TTS guide
-//TODO: add rotate / restore method to be able to paint in more axis
-
 var dbs = (function() {
-
-	var COLORS = [ "blue", "red", "green", "black", "orange", "none", "white" ];
-
+	
+	// for chosing a color
+	var COLORS = [ "blue", "red", "green", "black", "orange", "none", "white", "light grey","pink"];
+	COLORS.map(function(color) {
+		// for each color add a callback
+		vr.addCallback(function(result) {
+			console.log("color callback called " + color);
+			drawingSettings.setBrushColor(color);
+		}, {
+			transcript : color
+		});
+	});
+	
 	// for moving the pencil
 	var DIRECTIONS = [ "up", "down", "left", "right" ];
+	DIRECTIONS.map(function(direction) {
+		vr.addCallback(function(result) {
+			console.log("direction callback called " + direction);
+			draw.move(direction);
+		}, {
+			transcript : direction
+		});
+	});
+	
+	// for selecting a type of brush
+	var BRUSHES = ["small round","small square", "big round", "big square"];
+	BRUSHES.map(function(brush){
+		vr.addCallback(function(result) {
+			drawingSettings.setBrushType(brush);
+		},{
+			transcript : brush
+		});
+	});
+		
+	// for replaying the canvas into a sound
+	var PLAY = "play";
+	vr.addCallback(function(result) {
+		sound.start(2000);
+		console.log("play called");
+	}, {
+		transcript : PLAY
+	});
 	
 	// for starting to draw
 	var START = "go";
+	vr.addCallback(function(result) {
+		draw.start();
+		console.log("start called");
+	}, {
+		transcript : START
+	});
 	
 	// for stopping
 	var STOP = "stop";
+	vr.addCallback(function(result) {
+		sound.stop();
+		console.log("stop called");
+	}, {
+		transcript : STOP
+	});
+	
+	// for saving 
+	var SAVE = "save";
+	vr.addCallback(function(result) {
+		persist.save();
+		console.log("save called");
+	}, {
+		transcript : SAVE
+	});
+	
+	// for loading
+	var SAVES = [ {
+		name : "first",
+		value : "save1"
+	}, {
+		name : "second",
+		value : "save2"
+	}, {
+		name : "third",
+		value : "save3"
+	}, {
+		name : "forth",
+		value : "save4"
+	}, {
+		name : "fifth",
+		value : "save5"
+	} ];
+	
+	SAVES.map(function(save){
+		vr.addCallback(function() {
+			persist.load(save.value);
+		},{
+			transcript : save.name
+		});
+	});
+	
+	var LOAD = "load";
+	vr.addCallback(function(result) {
+		persist.show();
+		console.log("load called");
+	}, {
+		transcript : LOAD
+	});
 	
 	// for refreshing 
-	var REFRESH = "refresh";
+	var REFRESH = "clear";
+	vr.addCallback(function(result) {
+		draw.refresh();
+		console.log("refresh called");
+	}, {
+		transcript : REFRESH
+	});
 	
-	function playWelcomeMessage() {
-		
-		var WELCOME_MESSAGE = "Welcome to Draw by Sound! Enjoy "
-		
-		tts.speak({
-			message : WELCOME_MESSAGE,
-			onstart : function () {
-				vr.stop();
-			},
-			onend : function () {
-				vr.start();
-			}
-		});
-	}
+	
+	// for putting the brush on the canvas
+	var STROKE = "stroke";
+	vr.addCallback(function(result) {
+		draw.stroke();
+		console.log("stroke called");
+	}, {
+		transcript : STROKE
+	});
+	
 	
 	// mutes text to speech
 	var SHUT_UP = "shut up";
@@ -44,6 +130,7 @@ var dbs = (function() {
 	var SPEAK = "speak";
 		
 	function okCommand () {
+		console.log("ok command");
 		tts.speak({message:"You said ok!"});
 		vr.stop();
 	}
@@ -54,44 +141,10 @@ var dbs = (function() {
 	}, {
 		transcript : "ok"
 	});
-	
-	function chooseColor() {
-		// todo: make the chose color tutorial
-	}
-	
-	vr.addCallback(function(result){
-		chooseColor();
-	}, {
-		transcript : "color" 
-	});
+
+
 	
 
-	COLORS.map(function(color) {
-		// for each color add a callback
-		vr.addCallback(function(result) {
-			console.log("color callback called " + color);
-			draw.color(color);
-		}, {
-			transcript : color
-		});
-	});
-
-	DIRECTIONS.map(function(direction) {
-		vr.addCallback(function(result) {
-			console.log("direction callback called " + direction);
-			draw.move(direction);
-		}, {
-			transcript : direction
-		});
-	});
-	
-
-	vr.addCallback(function(result) {
-		draw.start();
-		console.log("start called");
-	}, {
-		transcript : START
-	});
 
 	vr.addCallback(function(result) {
 		draw.stop();
@@ -154,4 +207,28 @@ var dbs = (function() {
 	});
 	
 	vr.start();
+	
+	
+	function playWelcomeMessage() {
+		var WELCOME_MESSAGE = "Welcome to Sinaestetiq! Enjoy!"
+		tts.speak({
+			message : WELCOME_MESSAGE,
+			onstart : function () {
+				vr.stop();
+			},
+			onend : function () {
+				vr.start();
+			}
+		});
+	}
+	
+	// check if we are on a tutorial page
+	if(window.tutorial && window.tutorial.start){
+		tutorial.start();
+	} else {
+	   playWelcomeMessage();		
+	}
+	
+	
+	
 })();

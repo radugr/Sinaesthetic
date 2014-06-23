@@ -1,145 +1,150 @@
 /**
- * Drawing on canvas
+ * Drawing on canvas ( by sound )
  */
 var draw = (function() {
+	
+	var isStroking = false;
+	
 	var canvas = document.getElementById("canvas");
-	var context = canvas.getContext("2d");
-	context.lineWidth = 3;
 	canvas.width = canvas.parentElement.getBoundingClientRect().width;
 	canvas.height = canvas.parentElement.getBoundingClientRect().height;
 	
-	var positionX, positionY, nextPositionX, nextPositionY, drawing, currentColor, direction, speed;
-
-	function initialize() {
-		positionX = 0;
-		positionY = 0;
-		nextPositionX = 0;
-		nextPositionY = 0;
-		drawing = false;
-		currentColor = "black";
-		direction;
-		context.clearRect(0,0,canvas.width,canvas.height);
+	var drawingcontext = canvas.getContext("2d");
+	
+	var sonarcanvas = document.getElementById("canvas-top");
+	sonarcanvas.width = sonarcanvas.parentElement.getBoundingClientRect().width;
+	sonarcanvas.height = sonarcanvas.parentElement.getBoundingClientRect().height;
+	
+	var sonarcanvascontext = sonarcanvas.getContext("2d");
+	sonarcanvascontext.lineWidth = 2;
+	
+	var initialPosition = {
+		x : sonarcanvas.width / 2,
+		y : sonarcanvas.height / 2
 	}
 	
-	function move () {
-		
-		switch (direction) {
-			case "left":
-				nextPositionX = positionX - 1;
-				break;
-			case "right":
-				nextPositionX = positionX + 1;
-				break;
-			case "up":
-				nextPositionY = positionY - 1;
-				break;
-			case "down":
-				nextPositionY = positionY + 1;
-				break;
-			default:
-				//nothing
-				break;
-		} 
-		
-		//normalize values - keep drawing in the canvas
-		nextPositionX = nextPositionX % canvas.width;
-		nextPositionY = nextPositionY % canvas.height;
-		
-		nextPositionX = nextPositionX < 0 ? 0 : nextPositionX;
-		nextPositionY = nextPositionY < 0 ? 0 : nextPositionY;
-						
+	var currentPosition = {
+		x : initialPosition.x,
+		y : initialPosition.y
 	}
 	
-	function stroke() {
+	function drawCross(x,y) {
 		
-		move();
+		sonarcanvascontext.beginPath();
+		sonarcanvascontext.moveTo(x-20,y);
+		sonarcanvascontext.lineTo(x+20,y);
+		sonarcanvascontext.stroke();
+		sonarcanvascontext.closePath();
 		
-		// do the actual drawing
-		context.beginPath();
-		context.moveTo(positionX,positionY);
-		context.lineTo(nextPositionX,nextPositionY);
-		context.strokeStyle = currentColor;
-		context.stroke();
-		context.closePath();
+		sonarcanvascontext.beginPath();
+		sonarcanvascontext.moveTo(x,y-20);
+		sonarcanvascontext.lineTo(x,y+20);
+		sonarcanvascontext.stroke();
+		sonarcanvascontext.closePath();
 		
-		// update position
-		positionX = nextPositionX;
-		positionY = nextPositionY;
+	}
+	
+	function moveBrush(deltaX,deltaY) {
 		
-		// continue drawing until stop is called
-		drawing && window.requestAnimationFrame(stroke);
+		var nextX = currentPosition.x + deltaX;
+		var nextY = currentPosition.y + deltaY;
+		
+		clearCanvas();
+		
+		drawCross(nextX,nextY);
+		
+		if(isStroking){
+			// stroke on the underlying canvas
+			drawingcontext.strokeStyle = drawingSettings.getColor();
+			drawingcontext.lineCap = drawingSettings.getCurrentBrush().type;
+			drawingcontext.lineWidth = drawingSettings.getCurrentBrush().factor;
+			drawingcontext.beginPath();
+			drawingcontext.moveTo(currentPosition.x,currentPosition.y);
+			drawingcontext.lineTo(nextX,nextY);
+			drawingcontext.stroke();
+			drawingcontext.closePath();
+		}		
+		
+		currentPosition.x = nextX;
+		currentPosition.y = nextY;
+	}
+	
+	
+	
+	function clearCanvas() {
+		sonarcanvas.width = sonarcanvas.width;
 	}	
 	
-	function strokeTo(x,y) {
-		context.beginPath();
-		context.moveTo(positionX,positionY);
-		context.lineTo(x,y);
-		context.strokeStyle = currentColor;
-		context.stroke();
-		context.closePath();
-		
-		positionX = x;
-		positionY = y;
+	function clearDrawingCanvas() {
+		canvas.width = canvas.width;
 	}
-	
-	//TODO: show a cursor
-	function showCursor () {
-		context.moveTo(positionX,positionY);
-		window.requestAnimationFrame(showCursor);
-	}
-	
-	initialize();
-	
 	
 	//attach to refresh button
 	document.getElementById("refreshbutton").addEventListener("click", function() {
 		icons.activate("refresh");
-		initialize();
+		clearDrawingCanvas();
 		setTimeout(function(){
 			icons.deactivate("refresh");
 		},200);
 	});
 	
+	//TODO: create a sound when moving the brush
+	function move(direction) {
+		var resolution = 10;
+		sound.createPing();
+		switch (direction) {
+			case "up":
+				moveBrush(0,-resolution);
+				break;
+			case "down":
+				moveBrush(0,resolution);
+				break;
+			case "left":
+				moveBrush(-resolution,0);
+				break;
+			case "right":
+				moveBrush(resolution,0);
+				break;
+		}
+	}
+	
+	function init() {
+		moveBrush(0,0);		
+	}
+	
 	return {
 		color : function (color) {
 			currentColor = color;
 		},
-		move : function (dir) {
-			direction = dir;
-		},
 		moveup : function () {
-			direction = "up";
+			move("up");
 		}, 
 		movedown : function () {
-			direction = "down"; 
+			move("down"); 
 		},
 		moveleft : function () {
-			direction = "left";
+			move("left");
 		},
 		moveright : function () {
-			direction = "right";
+			move("right");
 		},
-		gotoposition : function (x, y) {
-			positionX = x % canvas.width;
-			positionY = y % canvas.height;
+		move : function (direction) {
+			move(direction);
 		},
-		start : function () {
-			drawing = true;
-			stroke();
-			icons.activate("drawing");
+		start : function () {			
+			icons.activate("drawing")
+			init();
 			drawingSettings.show();
 		}, 
 		stop : function () {
-			drawing = false;
 			icons.deactivate("drawing");
 			drawingSettings.hide();
 		}, 
 		refresh : function () {
-			initialize();
-			icons.deactivate("drawing");
+			clearDrawingCanvas();
 		}, 
-		stroketo : function (x,y) {
-			strokeTo(x, y);
+		stroke : function () {
+			isStroking = isStroking ? false : true; 
 		}
 	};
 })()

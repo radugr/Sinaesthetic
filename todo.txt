@@ -43,4 +43,15 @@
 13. Fix table text
 
 14  Add more colors to the picker
+
+15. Rename prototype.html to index.html 
+
+16. Add favicon? 
+
+//TODO: refactor application - do upper case to modules, etc;
+//TODO: create a navigation menu 
+//TODO: create a lock between text to speech, sound recording and voice recognition
+//TODO: add last visit checks so we don't put the user at rest
+//TODO: make the same guide appear on screen for users that don't what the TTS guide
+//TODO: add rotate / restore method to be able to paint in more axis
 	

@@ -129,15 +129,27 @@ var persist = (function () {
 		document.getElementById("previews").style.display = "none";
 	}
 	
+	loadFromLocalStorage();
+	
 	return {
 		save : function () {
 			save();
 		}, 
 		load : function (key) {
+			console.log(key);
 			load(key);
 		},
 		show : function () {
-			show();
+			if(!isVisible){
+				icons.activate("load");
+				drawingSettings.hide();
+				show();
+				isVisible = true;
+			} else {
+				isVisible = false;
+				icons.deactivate("load");
+				hide();
+			}
 		},
 		hide : function () {
 			hide();

@@ -32,12 +32,13 @@ var sound = (function() {
 	
 	var BORDER_SIGNAL_FREQ = 2349.32;
 	var AREA_DRAWN_FREQ = 392.00;
+	var PING_SIGNAL_FREQ = 1500;
 	
 	context.lineWidth = 1;
 	sonarcanvas.width = sonarcanvas.parentElement.getBoundingClientRect().width;
 	sonarcanvas.height = sonarcanvas.parentElement.getBoundingClientRect().height;
 	
-	var previousRectanglePosition = {};
+	var previousRectanglePosition = {y:-1};
 	
 	//TODO: signal reaching bounds
 	function moverectangle(position) {
@@ -62,7 +63,7 @@ var sound = (function() {
 		
 		readPaintingArea(currentRectanglePosition);
 		
-		if(currentRectanglePosition.y > previousRectanglePosition.y ) {
+		if(currentRectanglePosition.y > previousRectanglePosition.y) {
 			// signal we moved down
 			createOscillator(BORDER_SIGNAL_FREQ);
 		}
@@ -102,7 +103,7 @@ var sound = (function() {
 					moverectangle(currentPosition);
 					readPainting(currentPosition+1);
 				}
-			}, 100);
+			}, 200);
 		}
 	}
 	
@@ -148,7 +149,7 @@ var sound = (function() {
 	// attach mouse drawing to onclick of drawing icon 	
 	document.getElementById("replaybutton").addEventListener("click", function() {
 		if(!playing) {
-			start(1000);
+			start(3000);
 			icons.activate("replay");
 			canvas.style.zIndex = 2;
 			sonarcanvas.style.zIndex = 4;
@@ -163,7 +164,7 @@ var sound = (function() {
 	function start(res) {
 		resolution = res;
 		playing = 1;
-		previousRectanglePosition = {};
+		previousRectanglePosition = { y : -1};
 		icons.activate("speaker");
 		readPainting(0);
 	}
@@ -179,7 +180,14 @@ var sound = (function() {
 			start(res);
 		},
 		stop : function () {
-			stop(res);
+			stop();
+		},
+		createPing : function () {
+			icons.activate("speaker");
+			createOscillator(PING_SIGNAL_FREQ);
+			setTimeout(function() {
+				icons.deactivate("speaker");
+			}, 100);
 		}
 	};
 })();

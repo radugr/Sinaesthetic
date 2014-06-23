@@ -7,6 +7,7 @@ var icons = (function () {
 	var save = document.getElementById("savebutton");
 	var load = document.getElementById("loadbutton");
 	var refresh = document.getElementById("refreshbutton");
+	var tutorial = document.getElementById("tutorialbutton");
 	
 	function activate(name) {
 		switch (name) {
@@ -30,6 +31,9 @@ var icons = (function () {
 	    	break;
 	      case "refresh":
 	    	  refresh.className = refresh.className.replace(/\bdeactivated\b/,'activated');
+	    	break;
+	      case "tutorial":
+	    	  tutorial.className = tutorial.className.replace(/\bdeactivated\b/,'activated');
 	    	break;
 		}
 	}
@@ -56,6 +60,9 @@ var icons = (function () {
 	    	break;
 	      case "refresh":
 	    	  refresh.className = refresh.className.replace(/\bactivated\b/,'deactivated');
+	    	break;
+	      case "tutorial":
+	    	  tutorial.className = tutorial.className.replace(/\bactivated\b/,'deactivated');
 	    	break;
 		}
 	}
