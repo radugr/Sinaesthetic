@@ -1,155 +1,201 @@
-<!DOCTYPE html >
+<!DOCTYPE html>
 <html>
-<head>
-<link type="text/css" href="css/dbs.css" rel="stylesheet" />
-<link type="text/css" href="css/elusive-webfont.css" rel="stylesheet" />
-</head>
-<body>
 
-	<div id="header">
-		<a href=""><img id="logo" src="images/logo3.png"/></a>
-	</div>
-	
-	<div id="leftbar" class="menu">
-		<button id="drawingbutton" class="deactivated buttons el-icon-brush"></button>
-		<button id="micbutton" class="activated buttons el-icon-mic"></button>
-		<button id="speakerbutton" class="deactivated buttons el-icon-speaker"></button>
-		<button id="replaybutton" class="deactivated buttons el-icon-play"></button>
-		<button id="savebutton" class="deactivated buttons  el-icon-download-alt"></button>
-		<button id="loadbutton" class="deactivated buttons el-icon-folder-open"></button>
-		<button id="refreshbutton" class="deactivated buttons el-icon-refresh"></button>
-		<button id="tutorial" class="deactivated buttons el-icon-book"></button>
-	</div>
-	
-	<div id="rightbar" class="menu">
-		<div id="previews">
-			<canvas id="save1" class="buttons"></canvas>
-			<canvas id="save2" class="buttons"></canvas>
-			<canvas id="save3" class="buttons"></canvas>
-			<canvas id="save4" class="buttons"></canvas>
-			<canvas id="save5" class="buttons"></canvas>
-		</div>
-		<table id="drawingSettings" class="tg">
-		  <tr>
-		    <th class="tg-cxkv" colspan="2" rowspan="2"><canvas id="brushSelected" class="drawingTool"><canvas/></th>
-		    <th class="tg-031e" colspan="2" rowspan="2"><canvas id="colorSelected" class="drawingTool"><canvas/></th>
-		  </tr>
-		  <tr>
-		  </tr>
-		  <tr>
-		    <td class="tg-8056" colspan="4">Brush</td>
-		  </tr>
-		  <tr>
-		    <td class="tg-031e"><canvas id="brushSquare1" class="drawingTool"><canvas/></td>
-		    <td class="tg-031e"><canvas id="brushSquare2" class="drawingTool"><canvas/></td>
-		    <td class="tg-031e"><canvas id="brushSquare3" class="drawingTool"><canvas/></td>
-		    <td class="tg-031e"><canvas id="brushSquare4" class="drawingTool"><canvas/></td>
-		  </tr>
-		  <tr>
-		    <td class="tg-031e"><canvas id="brushCircle1" class="drawingTool"><canvas/></td>
-		    <td class="tg-031e"><canvas id="brushCircle2" class="drawingTool"><canvas/></td>
-		    <td class="tg-031e"><canvas id="brushCircle3" class="drawingTool"><canvas/></td>
-		    <td class="tg-031e"><canvas id="brushCircle4" class="drawingTool"><canvas/></td>
-		  </tr>
-		  <tr>
-		    <td class="tg-8e65" colspan="4">Color</td>
-		  </tr>
-		  <tr>
-		    <td class="tg-031e"><canvas id="brushColor1" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor2" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor3" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor4" class="color"></td>
-		  </tr>
-		  <tr>
-		    <td class="tg-031e"><canvas id="brushColor5" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor6" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor7" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor8" class="color"></td>
-		  </tr>
-		  <tr>
-		    <td class="tg-031e"><canvas id="brushColor9" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor10" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor11" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor12" class="color"></td>
-		  </tr>
-		  <tr>
-		    <td class="tg-031e"><canvas id="brushColor13" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor14" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor15" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor16" class="color"></td>
-		  </tr>
-		  <tr>
-		    <td class="tg-031e"><canvas id="brushColor17" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor18" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor19" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor20" class="color"></td>
-		  </tr>
-		  <tr>
-		    <td class="tg-031e"><canvas id="brushColor21" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor22" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor23" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor24" class="color"></td>
-		  </tr>
-		  <tr>
-		    <td class="tg-031e"><canvas id="brushColor25" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor26" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor27" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor28" class="color"></td>
-		  </tr>
-		  <tr>
-		    <td class="tg-031e"><canvas id="brushColor29" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor30" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor31" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor32" class="color"></td>
-		  </tr>
-		  <tr>
-		    <td class="tg-031e"><canvas id="brushColor33" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor34" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor35" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor36" class="color"></td>
-		  </tr>
-		  <tr>
-		    <td class="tg-031e"><canvas id="brushColor37" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor38" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor39" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor40" class="color"></td>
-		  </tr>
-		  <tr>
-		    <td class="tg-031e"><canvas id="brushColor41" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor42" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor43" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor44" class="color"></td>
-		  </tr>
-		  <tr>
-		    <td class="tg-031e"><canvas id="brushColor45" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor46" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor47" class="color"></td>
-		    <td class="tg-031e"><canvas id="brushColor48" class="color"></td>
-		  </tr>
-		</table>
-	</div>	
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Sinaesthetic : " />
 
-	<div id="board">
-		<canvas id="canvas"></canvas>
-		<canvas id="canvas-top"></canvas>
-	</div>
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-	<div id ="transcript">
-		<h2 id="transcripttext"> Listening ...</h2>
-	</div>
+    <title>Sinaesthetic - draw by sound</title>
+  </head>
 
-	<script type="text/javascript" src="javascript/transcript-display.js"></script>
-	<script type="text/javascript" src="javascript/icons.js"></script>
-	<script type="text/javascript" src="javascript/mouse.js"></script>	
-	<script type="text/javascript" src="javascript/draw.js"></script>
-	<script type="text/javascript" src="javascript/tts.js"></script>
-	<script type="text/javascript" src="javascript/vr.js"></script>	
-	<script type="text/javascript" src="javascript/sound.js"></script>
-	<script type="text/javascript" src="javascript/dbs.js"></script>
-	<script type="text/javascript" src="javascript/persist.js"></script>
-	<script type="text/javascript" src="javascript/drawing-settings.js"></script>
-	<script type="text/javascript" src="javascript/loadImage.js"></script>
-	<script type="text/javascript" src="javascript/predefinedDrawings.js"></script>
-	
-</body>
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/radugr/Sinaesthetic">View on GitHub</a>
+          <img src="images/logo.png" height="50%" width="50%"/>
+          <h1 id="project_title"></h1>
+          <h2 id="project_tagline"></h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/radugr/Sinaesthetic/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/radugr/Sinaesthetic/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>
+<a name="about" class="anchor" href="#about"><span class="octicon octicon-link"></span></a>What is Sinaesthetic?</h3>
+
+<p>Sinaesthetic is a draw-by-sound web application. A sound recognition system takes user input, parses it and controls the application based on the recognised sounds. Take a look at the <a href="tutorial.html">tutorial</a> (currently available only for the Chrome browser) to get a glimpse of the Sinaesthetic prototype:</p>
+
+<p><iframe width="560" height="315" src="//www.youtube.com/embed/g8sGNHEa6hU" frameborder="0" allowfullscreen></iframe></p>
+
+<p>...or check out a <a href="prototype.html" target="_new">protoype of the UI</a> (opens in a new tab).</p>
+
+<h3>
+  <a name="interaction" class="anchor" href="#interaction"><span class="octicon octicon-link"></span></a>
+Application interaction</h3>
+</h3>
+<p> The user can interact through the application by sound. Input is received either by voice or music instrument sounds and the feedback is provided
+  through app recorded sounds and text to speech.
+</p>
+
+<h3>
+<a name="concepts" class="anchor" href="#concepts"><span class="octicon octicon-link"></span></a>
+Application concepts</h3>
+
+<p><strong>Voice driven drawing: </strong> The application provides voice controls for drawing.
+Besides the usual editing commands like save, empty and restore, voice controls include selecting a color, a paint tool, positioning it on the canavas drawing.</p>
+<p><strong>Sound driven drawing:</strong> The application controls can be mapped to the sounds chosen by the user, for example
+  an user may chose the map the application controls to piano keys ( same as the ones described above).
+</p>
+<p><strong>Painting to sound:</strong> The application is able to replay a painting through sound, similar to a sonar.
+The painting is transformed from a two dimensional pixel map to a liniar sound stream in which each pixel is transformed
+to a sound. This feature will also aid accesibility for visual impaired persons.
+</p>
+<p><strong>Tutorials</strong> The application provides interactive tutorials through which users can learn the application
+  controls.
+</p>
+
+<h3>
+<a name="who" class="anchor" href="#who"><span class="octicon octicon-link"></span></a>Who is it for?</h3>
+<p>Personas (clicking on the links opens new tabs):</p>
+ <ul>
+ <li><a href="Personas/Persona-01.html" target="_new">Dan Johnson, Creative Director </a>- finds inspiration and stress relief in our app</li>
+ <li><a href="Personas/Persona-02.html" target="_new">John Smith, CEO </a>- uses Sinaesthetic for stress relief and productivity increase in his company</li>
+ <li><a href="Personas/Persona-03.html" target="_new">Mike Stone, University Student</a> - being visually impaired, Sinaesthetic helps express his artistic talent and also helps with his academic pursuits</li>
+ <li><a href="Personas/Persona-04.html" target="_new">Sara Simpson, High School Student</a> - finds Sinaesthetic fun, addictive and trendy</li>
+</ul>
+
+<h3>
+<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Project Identity</h3>
+
+<p><strong>Color scheme</strong></p>
+
+<p>Justification of the chromatic choice for the visual identity of the application: the chromatic combination
+between blue and orange is designed to be aesthetically pleasant and to emphasize the characteristics of both
+colors, given the contrasting nature of this combination. These two colors are usually used in professional
+circumstances for two age categories: young and middle-age, they have in common the tendency to both
+concentrate and relax. It is scientifically proven that, while orange accesses the left hemisphere of the
+brain, blue accesses the right one. Combining the two sets of capacities and functions of the human brain
+usually helps to visually concentrate to stimuli, regardless of their nature. In other words, whenever this
+chromatic combination is used, the subject is going to improve his performance of the cognitive processes of
+both intellectual and artistic brain functions. There are no further suggestions regarding the gender of the
+target that shold be taken into consideration, reason for which this combination is suitable for both men and
+women equally.</p>
+Concerning the inner given meaning of each of these colors by experts in visual arts, blue is generally
+regarded as a great stimulus for patience, peace and calmness, while orange represents friendliness and
+trustworthiness of the given environment, while it also covers the energy boost necessary to keeping focused.
+In combination, these two colors tend to help the subject keep focused for a longer period of time. Since
+it's scientifically proven that the human brain cannot remain focused for more than 20 minutes continuously,
+unless there are exceptional conditions, this chromatic combination is proven to have kept the subjects
+focused for more than half an hour in an unfriendly and distractive environment.
+
+<p><strong>Naming</strong></p>
+
+<p>Synesthezia is the cognitive capacity of the brain to mistaken a stimulus of a kind after having recieved it
+and decoding it in another stimulus' manner. For instance, a visual stimulus can be perceived by a subject
+like a sound or like a state of mind. This kind of misinterpretation of the human brain is today believed to
+be a cognitive dysfunction. However, history shows, this kind of twisted cognitive perception has helped
+enrich the artistic perception of great personalities, by managing to combine two different perceptions and
+obtain another given feeling from their blending. In the context of this application, synesthezia is used to
+metaphorically represent the two different kinds of stimuli that are used, interpreted and transformed.
+Another meaning of the first part in the naming of this application (explaining the use of 'i' instead of
+'y') is based on the sinus-cosinus relationship and the complementarity between these two - similarly, the
+two distinct senses are being transformed into a complementary result of their combination. Aesthetically
+speaking, the capacity to transform an acoustic stimulus into a visual representation isn't only based on a
+common act of semiosis, but also implies that there is a converging result of artistic nature, meaning that
+both semiotically speaking and aesthetically at the same time, the application in itself stands for a
+senzorial improvement. Concerning the semiosis, the act of decodification and representation of a stimulus
+towards another one, the complexity of the reality that is represented through the initial stimulus increases
+proportionally with its corespondent representation, making it not only useful but also aesthetically
+pleasant. The sinus and cosinus are perceived by the human brain in an interdependent relation of
+complementarity, and so are the complementary colors used in the visual identity of the application (blue and
+orange), suggesting the semiotic complementarity of the senses that are being involved in the codification-
+decodification-recodification-representation process implied, thus creating a visual identitary unity. </p>
+
+<h3>
+<a name="qoc" class="anchor" href="#qoc"><span class="octicon octicon-link"></span></a>
+Questions, Options, Criteria</h3>
+
+<p><strong>Q1: Where to position toolbar?</strong><br/>
+O: Left<br/>
+O: Right<br/>
+O: Top<br/>
+O: Bottom<br/>
+O: Left or Right and Top<br/>
+O: Left or Right and Bottom<br/>
+O: Left and Right<br/>
+O: Top and Bottom<br/>
+O: Invisible (tools activated by sounds only)<br/>
+C: Familiar<br/>
+C: Simmetric<br/>
+C: Relevant tool grouping<br/>
+C: Low user effort<br/>
+C: Efficient screen space usage<br/>
+C: Easy to use<br/>
+C: Good canvas focus</p>
+
+<p><i>Conclusion:</i> Popular drawing software such as Microsoft Paint or Adobe Photoshop usually have the most used
+tools (pen, color selector etc.) in a toolbar on the left and some general tools (save, undo etc.) in a menu
+on top. This separation helps logically group tools and keeps the user in a familiar environment. However,
+the top menu is a main trait of desktop applications and the number of tools offered does not require
+cascading menu grouping. In order to save screen space and center the canvas for good focus, placing the
+drawing tools on the left to preserve familiarity and the general, utility tools on the right, seems like the
+best solution.</p>
+
+<p><strong>Q2: Type of sounds recognized?</strong><br/>
+O: Musical notes<br/>
+O: Words<br/>
+C: Intuitive<br/>
+C: Language independent<br/>
+C: High number of possible commands<br/>
+C: Easy to use</p>
+
+<p><i>Conclusion:</i> While drawing by playing music is language independent and can create a high number of possible
+commands, using actual words to draw is more intuitive and easier to use while also not restricting the
+number of possible commands. Also adding the fact that it can be implemented easier and more reliable using
+voice recognition engines, drawing by using words seems to be the best solution.</p>
+
+<p><strong>Q3: How to draw using words?</strong><br/>
+O: Instruction based ("move left 3 units", "brush color red" etc.)<br/>
+O: Based on the physical characteristic of the sound (pitch, length etc.)<br/>
+C: Easy to use<br/>
+C: Intuitive<br/>
+C: High accuracy</p>
+
+<p><i>Conclusion:</i> Using exact instructions offers a much higher accuracy and ease of use and seems to be the best
+solution.</p>
+
+<h3>
+<a name="accesibility" class="anchor" href="#accesibility"><span class="octicon octicon-link"></span></a>Accesibility</h3>
+<p> Through its componets and tutorials, the application provides a way to paint for visually impaired people. </p>
+
+<h3>
+<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+
+<p><ul><li>Alexandru Tronciu (<a href="https://github.com/tralexel" class="user-mention">@tralexel</a>): prototype, UI, tutorial;</li>
+<li>Radu Grigoras (<a href="https://github.com/radugr" class="user-mention">@radugr</a>): project identity, personas, QOC, <a href="http://www.github.com">GitHub</a> <a href="http://radugr.github.io/Sinaesthetic/">page</a> and <a href="https://github.com/radugr/Sinaesthetic/">repo</a>.</li></ul></p>
+      </section>
+    </div>
+
+    <!-- FOOTER -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Sinaesthetic maintained by <a href="https://github.com/radugr">radugr</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
 </html>
