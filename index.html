@@ -194,29 +194,41 @@ solution.</p>
 <p>Sinaesthetic is an app you can use to draw using your mouse or your voice. You can save your work and come back to it, change colours, erase or identify a drawing using the sonar system. You can try Sinaesthetic yourself now: <a href="index2.html">live demo</a>.</p>
 
 <p><strong>Left tool box</strong></p>
-
+<p>Each icon has two modes: blue - deactivated, orange - activated. Here are the icons, from top to bottom, explained:</p>
 <ul>
-	<li><strong>Brush:</strong> select this to enter drawing mode. More options will appear in the right tool box.</li>
-	<li><strong>Microphone:</strong> When this button is highlighted, the speech system is listening to commands.</li>
-	<li><strong>Sound:</strong> When this button is highlighted, the speech system is "talking" to you.</li>
-	<li><strong>Playback:</strong> When this button is used, the sonar is activated.</li>
-	<li><strong>Save:</strong> When this button is pressed, your work is saved (you can view saved states in the right tool box.</li>
-	<li><strong>Open:</strong> Use this button to load a drawing.</li>
-	<li><strong>Refresh:</strong> Use this button to erase all drawings from canvas.</li>
-	<li><strong>Tutorials:</strong> This opens up some tutorials and info about how to use Sinaesthetic.</li>
+	<li><strong>Pen:</strong> select this to enter drawing mode. More options will appear in the right tool box.</li>
+	<li><strong>Microphone:</strong> When this button is active, the speech system is listening to commands.</li>
+	<li><strong>Sound:</strong> When this button is active, the application is sending sounds (speech, sonar).</li>
+	<li><strong>Play:</strong> When this button is used, the sonar is activated. It remains activated while the sonar is in use.</li>
+	<li><strong>Save:</strong> When this button is pressed, your work is saved (you can view saved states in the right tool box by pressing the load button). Active while the canvas is being saved.</li>
+	<li><strong>Load:</strong> Use this button to load a saved state from the persistence menu. Active when the persistence menu is open.</li>
+	<li><strong>Clear:</strong> Use this button to erase all drawings from canvas.</li>
+	<li><strong>Tutorials:</strong> This opens up some tutorials and info about how to use Sinaesthetic. Active when in tutorial mode.</li>
 </ul>
 
 <p><strong>Right tool box</strong></p>
-
+<p>This tool bar is used in drawing mode to choose colours or brush size and form. It is structured in three sections: top section contains the current selection of colour and brush, mid section contains the available brushes, third section contains the available colours. When a brush / colour is pressed (or requested via voice control), the top section is updated.</p>
 <ul>
-	<li>When selecting the brush, you can view and select thickness and colour.</li>
-	<li>When selecting the save button, you can view saved states.</li>
+	<li>When selecting the pen, you can view and select thickness and colour.</li>
+	<li>When selecting the load button, you can view the persistence menu.</li>
 </ul>
+<p><strong>Persistence menu:</strong> When load is pressed (or requested via voice control), the persistence menu opens on the right. The persistence menu shows a preview of the previously saved drawings. When a preview is clicked the saved work is reloaded on the canvas.</p>
+
+<img src = "images/screenshot.jpg" />
 
 <p><strong>Voice commands</strong></p>
-
+ 
 <ul>
-	<li></li>
+	<li><strong>Go</strong>: Activates the drawing menu, puts the brush on the center of the canvas.</li>
+	<li><strong>Up, down, left, right</strong>: Moves the brush over the canvas.</li>
+	<li><strong>Stroke</strong>: Presses / releases the brush on the canvas. Each brush move when the brush is pressed will draw on the canvas. Say once to press, say again to release.</li>
+	<li><strong>Small round, Big round, Small square, Big square</strong>: Change the brush type. </li>
+	<li><strong>Colours</strong>: A set of predefined colors can be named by the user to change the brush color.</li>
+	<li><strong>Clear</strong>: Clears the canvas.</li>
+	<li><strong>Save</strong>: Save the canvas.</li>
+	<li><strong>Load</strong>: Opens the persistence menu. Shows a preview of the previous work, and allows user to chose to load an item from history.</li>
+	<li><strong>First, Second, Third, Forth, Fifth</strong>: Load a painting from the storage, ordered by age, with the oldest being first.</li>
+	<li><strong>Play</strong>: Brings up the sonar, which will replay the current drawing to the user.</li>
 </ul>
 
 <p> Here is a demo of how drawing using speech works like in Sinaesthetic: </p>
@@ -225,10 +237,53 @@ solution.</p>
 <p><iframe width="560" height="315" src="//www.youtube.com/embed/2BfEX9XHxWQ" frameborder="0" allowfullscreen></iframe></p>
 
 <h3>
+<a name="references" class="anchor" href="#references"><span class="octicon octicon-link"></span></a>References</h3>
+<p>
+<ul>
+<li>Text to Speech:</li>
+	<a href="http://updates.html5rocks.com/2014/01/Web-apps-that-talk---Introduction-to-the-Speech-Synthesis-API">http://updates.html5rocks.com/2014/01/Web-apps-that-talk---Introduction-to-the-Speech-Synthesis-API</a>
+
+<li>Speech recognition:</li>
+    <a href="http://stiltsoft.com/blog/2013/05/google-chrome-how-to-use-the-web-speech-api/">http://stiltsoft.com/blog/2013/05/google-chrome-how-to-use-the-web-speech-api/</a>
+    <a href="http://www.adobe.com/devnet/html5/articles/voice-to-drive-the-web-introduction-to-speech-api.html">http://www.adobe.com/devnet/html5/articles/voice-to-drive-the-web-introduction-to-speech-api.html</a>
+
+<li>Sound recording:</li>
+    <a href="http://www.html5rocks.com/en/tutorials/getusermedia/intro/">http://www.html5rocks.com/en/tutorials/getusermedia/intro/</a>
+    <a href="http://dev.w3.org/2011/webrtc/editor/getusermedia.html">http://dev.w3.org/2011/webrtc/editor/getusermedia.html</a>
+	<a href="http://www.html5rocks.com/en/tutorials/webaudio/intro/">http://www.html5rocks.com/en/tutorials/webaudio/intro/</a>
+
+<li>Trunk.js</li>
+  <a href="http://www.roblukedesign.com/trunk/trunk.html#">http://www.roblukedesign.com/trunk/trunk.html#</a>
+  
+<li>Fonts</li>
+   <a href="http://shoestrap.org/downloads/elusive-icons-webfont/">http://shoestrap.org/downloads/elusive-icons-webfont/</a>
+   
+<li>Creating music with JavaScript:</li>
+	<a href="http://flippinawesome.org/2013/10/28/audio-synthesis-in-javascript/">http://flippinawesome.org/2013/10/28/audio-synthesis-in-javascript/</a>
+	<a href="http://chimera.labs.oreilly.com/books/1234000001552/index.html/Web Audio API">http://chimera.labs.oreilly.com/books/1234000001552/index.html/Web Audio API</a>
+	<a href="http://flippinawesome.org/2014/03/31/creating-sound-with-the-web-audio-api-and-oscillators/">http://flippinawesome.org/2014/03/31/creating-sound-with-the-web-audio-api-and-oscillators/</a>
+
+<li>Images:</li>
+Olympic circle:
+	<a href="http://www.activityvillage.co.uk/sites/default/files/images/olympic_rings_colouring_page_460_1.jpg">http://www.activityvillage.co.uk/sites/default/files/images/olympic_rings_colouring_page_460_1.jpg</a>
+<br/>World map:
+	<a href="http://www.boomwallpaper.com/world-maps-countries-names-black-white/world-maps-with-countries-names-black-and-white-1/">http://www.boomwallpaper.com/world-maps-countries-names-black-white/world-maps-with-countries-names-black-and-white-1/</a>
+
+<li>Predefined drawings:</li>
+Drawing olympic circles:
+	<a href="http://stackoverflow.com/questions/21180453/olympics-rings-with-javascript-on-html5-canvas">http://stackoverflow.com/questions/21180453/olympics-rings-with-javascript-on-html5-canvas</a>
+
+<li>Generating table:</li>
+	<a href="http://www.tablesgenerator.com/html_tables">http://www.tablesgenerator.com/html_tables</a>
+ </ul>
+</p>
+
+
+<h3>
 <a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
 
-<p><ul><li>Alexandru Tronciu (<a href="https://github.com/tralexel" class="user-mention">@tralexel</a>): prototype, UI, tutorial;</li>
-<li>Radu Grigoras (<a href="https://github.com/radugr" class="user-mention">@radugr</a>): project identity, personas, QOC, <a href="http://www.github.com">GitHub</a> <a href="http://radugr.github.io/Sinaesthetic/">page</a> and <a href="https://github.com/radugr/Sinaesthetic/">repo</a>.</li></ul></p>
+<p><ul><li>Alexandru Tronciu (<a href="https://github.com/tralexel" class="user-mention">@tralexel</a>): prototype, UI, tutorial, implementation;</li>
+<li>Radu Grigoras (<a href="https://github.com/radugr" class="user-mention">@radugr</a>): project identity, personas, QOC, usability testing, documentation, <a href="http://www.github.com">GitHub</a> <a href="http://radugr.github.io/Sinaesthetic/">page</a> and <a href="https://github.com/radugr/Sinaesthetic/">repo</a>.</li></ul></p>
       </section>
     </div>
 
